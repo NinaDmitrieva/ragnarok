@@ -1,37 +1,37 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 module.exports = {
     entry: {
-        app: ".src/assets/js/index.js"
+        app: "./src/assets/js/index.js",
     },
-    oninput: {
+    output: {
         clean: true,
-        filiname: "[name].bundle.js",
-        path: path.resolve(__dirname, 'dist')
+        filename: "[name].bundle.js",
+        path: path.resolve(__dirname, "dist"),
     },
-    mode: 'development',
+    mode: "development",
     devServer: {
-        static: './src',
+        static: "./src",
         compress: true,
         port: 9000,
-        hot: true
+        hot: true,
     },
     module: {
         rules: [
             {
                 test: /\.(s[ac]ss|css)$/i,
-                use: ["style-loader", "css-loader", "sass-loader"]
+                use: ["style-loader", "css-loader", "sass-loader"],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: "asset/resource",
             },
-        ]
+        ],
     },
-    plagins: [
+    plugins: [
         new HtmlWebpackPlugin({
-            title: "Got Of War",
+            title: "God Of War",
             template: "src/index.html",
         }),
     ],

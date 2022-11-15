@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack server"
   },
   "repository": {
     "type": "git",
@@ -17,14 +17,16 @@
   },
   "homepage": "https://github.com/NinaDmitrieva/ragnarok#readme",
   "devDependencies": {
-    "add": "^2.0.6",
     "css-loader": "^6.7.2",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
+    "serve": "^14.1.1",
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
   }
 }
