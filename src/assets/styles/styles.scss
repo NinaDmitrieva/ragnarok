@@ -1,32 +1,74 @@
+@import './colors.scss';
+
 .section {
-    &-main {
-        padding-top: 40px;
-        position: relative;
-        min-width: 1920px;
-        margin: 0 auto;
-        min-height: 70vh;
+  &-main {
+    padding-top: 40px;
+    position: relative;
+    min-width: 1920px;
+    margin: 0 auto;
+    min-height: 70vh;
 
-        &:after, &:before{
-            height: 764px;
-            width: 1363px;
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            z-index: -1;
-        }
-        
-        &:after {
-            background: url(../img/snow.gif) no-repeat center/cover;
-            opacity: .1;
-        }
-
-        &:before {
-            background: url(../img/bg.png) no-repeat center/cover;
-        }
+    &:after,
+    &:before {
+      height: 764px;
+      width: 1363px;
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -1;
     }
+
+    &:after {
+      background: url(../img/snow.gif) no-repeat center/cover;
+      opacity: 0.1;
+    }
+
+    &:before {
+      background: url(../img/bg.png) no-repeat center/cover;
+    }
+  }
 }
 
 .header {
-    
+  align-items: center;
+
+  &-menu {
+    align-items: center;
+
+    &__btn {
+      width: 25px;
+      height: 16px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      transition: width .25s;
+
+      span {
+        width: 25px;
+        height: 2px;
+        background: $white;
+        position: relative;
+        display: block;
+
+        &::after, &::before {
+            display: block;
+            content: "";
+            width: 12px;
+            height: 2px;
+            background: $white;
+            position: absolute;
+            transition: width .25s;
+        }
+        &:after {
+            top: 5px;
+        }
+
+        &::before {
+            width: 25px;
+            top: 10px;
+        }
+      }
+    }
+  }
 }
