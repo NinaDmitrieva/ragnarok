@@ -14,6 +14,7 @@
       width: 1363px;
       content: "";
       position: absolute;
+      display: block;
       top: 0;
       right: 0;
       z-index: -1;
@@ -73,7 +74,7 @@
 
       &__list {
         margin-left: 50px;
-        //z-index: -1;
+        z-index: -1;
 
         ul {
           column-gap: 24px;
@@ -82,7 +83,7 @@
           line-height: 27px;
           text-transform: uppercase;
           transform: translateX(-200px);
-          //opacity: 0;
+          opacity: 0;
         }
       }
 
@@ -108,11 +109,10 @@
 
           svg {
             width: 12px;
-            height: 12px;
+            height: 17px;
             fill: $white;
             transform: rotate(180deg);
-            margin-right: 9px;
-            color: $white;
+            margin-left: 9px;
           }
         }
       }
@@ -138,25 +138,104 @@
         }
       }
     }
+
+    &.opened {
+      .header {
+        &-menu {
+          &__btn {
+            span {
+              width: 12px;
+
+              &::after {
+                width: 25px;
+              }
+
+              &::before {
+                width: 12px;
+              }
+            }
+          }
+          &__list {
+            z-index: 1;
+
+            ul {
+              opacity: 1;
+              transform: translateX(0);
+              transition: opacity 0.2s, transform 0.25s;
+            }
+          }
+        }
+      }
+    }
+  
+
+  &-timer {
+    margin-left: auto;
+    column-gap: 19px;
+
+    span {
+      font-weight: 400;
+      line-height: 19px;
+      color: $grey;
+    }
+
+    &__values {
+     column-gap: 10px;
+    }
+    
+    &__item {
+      color: $sea;
+
+      &-value{
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 47px;
+        min-width: 55px;
+        text-align: center;
+      }
+
+      &-info {
+        text-align: center;
+        font-weight: 400;
+      }
+    }
+  }
+}
+}
+
+.description {
+  margin-top: 7%;
+  min-width: 540px;
+  animation: movie 1s ease-in-out;
+
+  &-title {
+    h1 {
+      font-weight: 600;
+      font-size: 100px;
+      line-height: 100px;
+    }
   }
 
-  &.opend {
-    .header{
-        &-menu{
-            &__btn{
-                span{
-                    width: 12px;
+  &-subtitle {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: $sea;
+    margin-top: 26px;
+  }
 
-                    &::after{
-                        width: 25px;
-                    }
+  &-btn {
+    
+  }
+}
 
-                    &::before{
-                        width: 12px;
-                    }
-                }
-            }
-        }
-    }
+@keyframes move {
+  0% {
+    opacity: 0;
+    transform:translateX(-400px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
