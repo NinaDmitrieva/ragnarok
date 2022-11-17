@@ -1,12 +1,13 @@
 @import "./colors.scss";
+@import "./mixins.scss";
 
 .section {
   &-main {
     padding-top: 40px;
     position: relative;
-    min-width: 1920px;
+    max-width: 1920px;
     margin: 0 auto;
-    min-height: 70vh;
+    min-height: 70px;
 
     &:after,
     &:before {
@@ -167,46 +168,45 @@
         }
       }
     }
-  
 
-  &-timer {
-    margin-left: auto;
-    column-gap: 19px;
+    &-timer {
+      margin-left: auto;
+      column-gap: 19px;
 
-    span {
-      font-weight: 400;
-      line-height: 19px;
-      color: $grey;
-    }
-
-    &__values {
-     column-gap: 10px;
-    }
-    
-    &__item {
-      color: $sea;
-
-      &-value{
-        font-weight: 700;
-        font-size: 40px;
-        line-height: 47px;
-        min-width: 55px;
-        text-align: center;
+      span {
+        font-weight: 400;
+        line-height: 19px;
+        color: $grey;
       }
 
-      &-info {
-        text-align: center;
-        font-weight: 400;
+      &__values {
+        column-gap: 10px;
+      }
+
+      &__item {
+        color: $sea;
+
+        &-value {
+          font-weight: 700;
+          font-size: 40px;
+          line-height: 47px;
+          min-width: 55px;
+          text-align: center;
+        }
+
+        &-info {
+          text-align: center;
+          font-weight: 400;
+        }
       }
     }
   }
 }
-}
 
-.description {
+.discription {
   margin-top: 7%;
-  min-width: 540px;
-  animation: movie 1s ease-in-out;
+  max-width: 540px;
+  animation: move 1s ease-in-out;
 
   &-title {
     h1 {
@@ -225,14 +225,16 @@
   }
 
   &-btn {
-    
+    @include btn;
+    @include hoverViolet;
+    margin-top: 36px;
   }
 }
 
 @keyframes move {
   0% {
     opacity: 0;
-    transform:translateX(-400px);
+    transform: translateX(-400px);
   }
   100% {
     opacity: 1;

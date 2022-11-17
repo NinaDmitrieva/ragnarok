@@ -1,6 +1,6 @@
 @import '../styles/colors.scss';
 
-@mixin btn ($color: $violet) {
+@mixin btn ($bg: $violet) {
     background: $bg;
     border-radius: 6px;
     padding: 12px 36px;
