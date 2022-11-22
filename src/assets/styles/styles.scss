@@ -29,17 +29,22 @@
     &:before {
       background: url(../img/bg.png) no-repeat center/cover;
     }
-    &-dual {
-      margin-top: 54px;
-    }
+  }
 
-    &-about{
-      margin-top: 90px;
-    }
+  &-dual {
+    margin-top: 54px;
+  }
 
-    &-explore {
-      margin-top: 80px;
-    }
+  &-about {
+    margin-top: 90px;
+  }
+
+  &-explore {
+    margin-top: 80px;
+  }
+
+  &-news {
+    margin-top: 100px;
   }
 
   .header {
@@ -311,15 +316,15 @@
   }
 }
 
-.dual{
+.dual {
   column-gap: 5%;
   margin-top: 20px;
-  transition: column-gap .5s;
+  transition: column-gap 0.5s;
 
-  &-description{
+  &-description {
     max-width: 410px;
 
-    p{
+    p {
       color: $sea;
       font-weight: 400;
       font-size: 18px;
@@ -350,16 +355,16 @@
       font-weight: 500;
     }
   }
-  &-img{
+  &-img {
     max-width: 50%;
     position: relative;
 
-    img{
+    img {
       max-width: fit-content;
       animation: gravitation 1.5s linear infinite alternate;
     }
-    &::before{
-      content: '';
+    &::before {
+      content: "";
       display: block;
       width: 194px;
       height: 119px;
@@ -376,15 +381,15 @@
 .video {
   position: relative;
   margin-top: 32px;
-  transition: transform .5s;
+  transition: transform 0.5s;
   transform: scale(1);
 
-  video{
+  video {
     height: auto;
     width: 100%;
   }
 
-  &-info{
+  &-info {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -395,12 +400,12 @@
     &.hidden {
       opacity: 0;
 
-      &:hover{
+      &:hover {
         opacity: 1;
       }
     }
   }
-  
+
   &-title {
     font-weight: 500;
     font-size: 50px;
@@ -408,7 +413,7 @@
     line-height: 39px;
   }
 
-  &-btn{
+  &-btn {
     background: $dark;
     border-radius: 6px;
     padding: 9px 26px;
@@ -422,19 +427,18 @@
 
     &hover {
       background: #525c67;
-
     }
   }
 }
 
-.explore{
-  &-items{
+.explore {
+  &-items {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
     row-gap: 100px;
     margin-top: 32px;
 
-    h3{
+    h3 {
       text-align: center;
       font-weight: 500;
       font-size: 18px;
@@ -442,8 +446,8 @@
     }
   }
 
-  &-item{
-    &__price{
+  &-item {
+    &__price {
       margin-top: 20px;
       font-weight: 700;
       font-size: 20px;
@@ -453,18 +457,18 @@
     }
   }
 
-  &-switch{
+  &-switch {
     margin-top: 20px;
     column-gap: 15px;
 
-    &__checkbox{
+    &__checkbox {
       width: 54px;
       height: 25px;
       background: $dark;
       border-radius: 12px;
       position: relative;
 
-      input{
+      input {
         width: 100%;
         height: 100%;
         position: absolute;
@@ -472,14 +476,14 @@
         cursor: pointer;
         z-index: 2;
 
-        &:checked{
+        &:checked {
           & + span {
             transform: translateX(28px);
           }
         }
       }
 
-      span{
+      span {
         border-radius: 50px;
         background: $violet;
         width: 18px;
@@ -498,25 +502,25 @@
       line-height: 17px;
       color: $dark;
 
-      &.activ{
+      &.activ {
         color: $white;
       }
     }
   }
-  &-info{
+  &-info {
     margin-top: 96px;
     column-gap: 5%;
     transition: column-gap 0.5s;
 
-    &.reverse{
+    &.reverse {
       flex-direction: row-reverse;
 
       .explore {
-        &-img{
+        &-img {
           justify-content: start;
         }
 
-        &-description{
+        &-description {
           text-align: right;
         }
 
@@ -527,22 +531,22 @@
     }
   }
 
-  &-img{
+  &-img {
     width: 50%;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: end;
 
-    &__wrap{
+    &__wrap {
       width: 300px;
       height: 300px;
       border-radius: 12px;
       @include bg;
       position: relative;
 
-      &::before{
-        content: '';
+      &::before {
+        content: "";
         display: block;
         width: 61px;
         height: 140px;
@@ -564,7 +568,7 @@
     }
   }
 
-  &-description{
+  &-description {
     min-width: max-content;
     width: 50%;
 
@@ -575,12 +579,12 @@
       line-height: 36px;
       display: none;
 
-      &.active{
+      &.active {
         display: flex;
       }
     }
   }
-  
+
   &-btn {
     @include btn($orange);
     @include hoverOrange;
@@ -588,15 +592,99 @@
   }
 }
 
+.news {
+  margin-top: 32px;
+  transition: transform 0.5s;
+  transform: translate(0);
+
+  &-item {
+    background: linear-gradient(177.87deg, #30373f 43.63%, #141615 185.57%);
+    border-radius: 6px;
+    padding: 20px;
+
+    &__info {
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__subtitle {
+      font-weight: 600;
+      font-size: 10px;
+      line-height: 12px;
+      text-transform: uppercase;
+      color: $violet;
+    }
+
+    &__date {
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 17px;
+      color: $grey;
+    }
+
+    &__title {
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 23px;
+      text-transform: uppercase;
+      color: $white;
+      margin: 7px 0 16px 0;
+    }
+
+    &__description {
+      column-gap: 24px;
+      height: 248px;
+      align-items: flex-start;
+    }
+
+    &__img {
+      min-width: 278px;
+      height: 100%;
+      @include bg;
+    }
+
+    &__text {
+      flex-direction: column;
+      height: 100%;
+
+      p {
+        color: #d9d9d9;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 17px;
+      }
+    }
+
+    &__btn {
+      background: $grey;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 15px;
+      text-transform: uppercase;
+      color: $white;
+      margin-top: 10px;
+      padding: 8px 30px;
+      display: flex;
+      width: max-content;
+      margin-left: auto;
+      margin-top: auto;
+      transition: background .25s;
+
+      &:hover {
+        background: $dark;
+      }
+    }
+  }
+}
+
 @keyframes gravitation {
-    0% {
+  0% {
     transform: translateY(-15px);
   }
   100% {
     transform: translateY(0px);
   }
 }
-
 
 @keyframes move {
   0% {
