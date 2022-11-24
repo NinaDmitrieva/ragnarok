@@ -1,9 +1,12 @@
 @import "./colors.scss";
+@import './typography.scss';
 
 body {
+  font: {
+    family: $font-family--default;
+    size: $font-size--s
+  }
   background: $main;
-  font-family: "Rubik", 'Roboto', sans-serif;
-  font-size: 16px;
   padding: 0;
   margin: 0;
   overflow-x: hidden;
@@ -19,8 +22,8 @@ h6,
 p {
   margin: 0;
   padding: 0;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: $font-size--s;
+  line-height: $line-height--l;
 }
 
 * {
@@ -34,12 +37,14 @@ img {
 
 input,
 button {
+  font: {
+    family: $font-family--default;
+    size: $font-size--s;
+  }
   bottom: none;
   background: none;
   outline: none;
-  font-size: 16px;
   color: $white;
-  font-family: "Rubik", Roboto, sans-serif;
 }
 
 a {
@@ -69,9 +74,11 @@ li {
 }
 
 h2 {
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 47px;
+  font: {
+    weight: $font-weight--m;
+    size: $font-size--xl;
+  }
+  line-height: $line-height--m;
   color: $white;
   text-align: center;
   opacity: 1;

@@ -1,3 +1,5 @@
+@import "../typography.scss";
+
 .editions {
   &-list {
     margin-top: 32px;
@@ -23,34 +25,44 @@
     }
 
     &__title {
+      font: {
+        size: $font-size--m;
+        weight: $font-weight--l;
+      }
+      line-height: 1;
       margin-top: 20px;
-      font-weight: 700;
-      line-height: 19px;
       text-align: center;
     }
 
     &__subtitle {
+      font: {
+        size: $font-size--s;
+        weight: $font-weight--s;
+      }
+      line-height: $line-height--s;
       color: $sea;
-      line-height: 19px;
-      font-weight: 500;
       text-align: center;
       margin: 10px 0 32px 0;
     }
 
     &__description {
+      font: {
+        size: $font-size--xs-2;
+        weight: $font-weight--xs;
+      }
+      line-height: $line-height--s;
       color: $grey;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 17px;
       display: flex;
       flex-direction: column;
       row-gap: 12px;
     }
 
     &__price {
-      font-weight: 700;
-      font-size: 19px;
-      line-height: 23px;
+      font: {
+        size: $font-size--m-2;
+        weight: $font-weight--l;
+      }
+      line-height: $line-height--s;
       color: $white;
       margin: 6px 0 14px 0;
       text-align: right;
@@ -60,8 +72,8 @@
       @include btn;
       @include hoverViolet;
       padding: 8px 18px;
-      font-size: 13px;
-      line-height: 15px;
+      font-size: $font-size--xs;
+      line-height: $line-height--m;
       margin-left: auto;
     }
   }

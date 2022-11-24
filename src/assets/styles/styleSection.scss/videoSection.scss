@@ -29,18 +29,20 @@
   }
 
   &-title {
-    font-weight: 500;
-    font-size: 50px;
+    font: {
+    size: $font-size--xl-2;
+    weight: $font-weight--s;
+    }
+    line-height: $line-height--xxs;
     color: $white;
-    line-height: 39px;
   }
 
   &-btn {
     background: $dark;
     border-radius: 6px;
     padding: 9px 26px;
-    font-weight: 500;
-    line-height: 16px;
+    font-weight: $font-weight--s;
+    line-height: $font-size--s;
     display: inline-block;
     cursor: pointer;
     margin: 28px auto 0 auto;

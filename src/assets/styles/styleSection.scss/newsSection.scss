@@ -1,3 +1,5 @@
+@import '../typography.scss';
+
 .news {
   margin-top: 32px;
   transition: transform 0.5s;
@@ -13,24 +15,30 @@
       align-items: center;
     }
     &__subtitle {
-      font-weight: 600;
-      font-size: 10px;
-      line-height: 12px;
+      font: {
+        weight: $font-weight--m;
+        size: $font-size--xxs;
+      }
+      line-height: $line-height--s;
       text-transform: uppercase;
       color: $violet;
     }
 
     &__date {
-      font-weight: 400;
-      font-size: 10px;
-      line-height: 17px;
+      font: {
+        weight: $font-weight--xs;
+        size: $font-size--xxs;
+      }
+      line-height: $line-height--l-2;
       color: $grey;
     }
 
     &__title {
-      font-weight: 600;
-      font-size: 19px;
-      line-height: 23px;
+      font: {
+        weight: $font-weight--m;
+        size: $font-size--m-2;
+      }
+      line-height: $line-height--s;
       text-transform: uppercase;
       color: $white;
       margin: 7px 0 16px 0;
@@ -53,19 +61,23 @@
       height: 100%;
 
       p {
+      font: {
+        weight: $font-weight--xs;
+        size: $font-size--xs;
+      }
+      line-height: $line-height--l;
         color: #d9d9d9;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 17px;
       }
     }
 
     &__btn {
+      font: {
+        weight: $font-weight--s;
+        size: $font-size--xs;
+      }
+      line-height: $line-height--m;
       background: $grey;
       border-radius: 6px;
-      font-weight: 500;
-      font-size: 13px;
-      line-height: 15px;
       text-transform: uppercase;
       color: $white;
       margin-top: 10px;

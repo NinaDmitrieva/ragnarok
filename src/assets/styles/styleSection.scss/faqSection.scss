@@ -9,11 +9,13 @@
     transform: translate(0);
 
     &__header {
+      font: {
+        size: $font-size--s;
+        weight: $font-weight--m;
+      }
+      line-height: $line-height--m;
       width: 100%;
       justify-content: space-between;
-      font-weight: 600;
-      font-size: 17px;
-      line-height: 20px;
       color: $white;
       cursor: pointer;
       border-bottom: 2px solid $violet;
@@ -31,7 +33,7 @@
         height: 30px;
 
         &::before {
-          font-size: 25px;
+          font-size: $font-size--m-2;
           content: "+";
           transition: transform 0.25s;
         }

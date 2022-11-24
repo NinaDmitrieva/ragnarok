@@ -4,23 +4,27 @@ $font-family--default: "Rubik",'Roboto', sans-serif;
 // font weights
 $font-weight--xs: 400;
 $font-weight--s: 500;
-$font-weight--sm: 600;
-$font-weight--m: 700;
+$font-weight--m: 600;
+$font-weight--l: 700;
 
 // font sizes
+$font-size--xxs: 10px;
+$font-size--xs: 13px;
+$font-size--xs-2: 14px;
 $font-size--s: 16px;
-$font-size--xs: 18px;
-$font-size--sm: 30px;
-$font-size--m: 40px;
-$font-size--l: 100px;
+$font-size--m: 18px;
+$font-size--m-2: 19px;
+$font-size--l: 30px;
+$font-size--xl: 40px;
+$font-size--xl-2: 50px;
+$font-size--xxl: 100px;
 
-$line-height--s: 1;
-$line-height--xs: 1.2;
+$line-height--xxs: 0.78;
+$line-height--xs: 1;
+$line-height--s: 1.2;
+$line-height--m: 1.175;
+$line-height--l: 1.5;
+$line-height--l-2: 2;
+$line-height--xl: 2.4;
 
 
-
-$line-height--m: 1.5;
-$line-height--sm: 1.175;
-$line-height--s: 1;
-$line-height--s: 1;
-1.2

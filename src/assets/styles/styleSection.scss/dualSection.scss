@@ -1,4 +1,5 @@
-@import '../animation.scss';
+@import "../animation.scss";
+@import "../typography.scss";
 
 .dual {
   column-gap: 5%;
@@ -9,14 +10,16 @@
     max-width: 410px;
 
     p {
+      font: {
+        size: $font-size--m;
+        weight: $font-weight--xs;
+      }
+      line-height: $line-height--l;
       color: $sea;
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 27px;
       margin-bottom: 22px;
 
       span {
-        font-weight: 700;
+        font-weight: $font-weight--l;
       }
     }
 
@@ -27,16 +30,18 @@
     }
 
     &__price {
-      font-weight: 700;
-      font-style: 30px;
-      line-height: 36px;
+      font: {
+        weight: $font-weight--l;
+        size: $font-size--l;
+      }
+      line-height: $line-height--s;
     }
 
     &__btn {
       @include btn(orange);
       @include hoverOrange;
       padding: 14px 19px;
-      font-weight: 500;
+      font-weight: $font-weight--s;
     }
   }
   &-img {

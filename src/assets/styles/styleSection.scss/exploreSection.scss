@@ -1,3 +1,5 @@
+@import "../typography.scss";
+
 .explore {
   &-items {
     display: flex;
@@ -6,19 +8,23 @@
     margin-top: 32px;
 
     h3 {
+      font: {
+        size: $font-size--m;
+        weight: $font-weight--s;
+      }
+      line-height: $line-height--m;
       text-align: center;
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 21px;
     }
   }
 
   &-item {
     &__price {
+      font: {
+        size: $font-size--m-2;
+        weight: $font-weight--l;
+      }
+      line-height: $line-height--s;
       margin-top: 20px;
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 24px;
       text-align: center;
       color: $white;
     }
@@ -64,9 +70,11 @@
     }
 
     &__title {
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 17px;
+      font: {
+        size: $font-size--xs-2;
+        weight: $font-weight--xs;
+      }
+      line-height: $line-height--s;
       color: $dark;
 
       &.activ {
@@ -139,16 +147,22 @@
     min-width: max-content;
     width: 50%;
 
-    ul {
+    .explore-list {
+      font: {
+        size: $font-size--s;
+        weight: $font-weight--xs;
+      }
+      line-height: $line-height--s;
       flex-direction: column;
-      font-weight: 400;
-      font-size: 15px;
-      line-height: 36px;
-      display: none;
+      //display: none;
 
       &.active {
         display: flex;
       }
+    }
+
+    span {
+      text-transform: uppercase;
     }
   }
 

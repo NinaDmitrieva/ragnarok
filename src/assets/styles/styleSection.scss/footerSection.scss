@@ -1,3 +1,5 @@
+@import "../typography.scss";
+
 .footer {
   padding-top: 156px;
   position: relative;
@@ -20,11 +22,14 @@
   }
 
   &-menu {
-    column-gap: 22px;
-    font-weight: 400;
-    line-height: 27px;
+    font: {
+      size: $font-size--s;
+      weight: $font-weight--xs;
+    }
+    line-height: $line-height--l;
     text-transform: uppercase;
     transition: color 0.25s ease;
+    column-gap: 22px;
 
     a {
       color: rgba(255, 255, 255, 0.5);
@@ -36,9 +41,11 @@
   }
 
   &-lang {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 27px;
+    font: {
+      size: $font-size--xs-2;
+      weight: $font-weight--s;
+    }
+    line-height: $line-height--l-2;
     cursor: pointer;
 
     span {
@@ -82,9 +89,11 @@
   }
 
   &-info {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
+    font: {
+      size: $font-size--xs-2;
+      weight: $font-weight--xs;
+    }
+    line-height: $line-height--s;
     text-align: center;
     color: $grey;
     margin: 50px auto 38px auto;
@@ -96,9 +105,12 @@
   }
 
   &-year {
+    font: {
+      size: $font-size--xs-2;
+      weight: $font-weight--xs;
+    }
+    line-height: $line-height--s;
     margin: 20px auto 13px auto;
-    font-weight: 400;
-    line-height: 19px;
     color: $grey;
     text-align: center;
   }

@@ -1,3 +1,5 @@
+@import "../typography.scss";
+
 .discription {
   margin-top: 7%;
   max-width: 540px;
@@ -5,19 +7,20 @@
 
   &-title {
     h1 {
-      font-weight: 600;
-      font-size: 100px;
-      line-height: 100px;
+      font: {
+        weight: $font-weight--m;
+        size: $font-size--xxl;
+      }
+      line-height: 1;
     }
   }
 
   &-subtitle {
     font: {
-      weight: 400;
-      size: 18px;
+      weight: $font-weight--xs;
+      size: $font-size--m;
     }
-
-    line-height: 27px;
+    line-height: $line-height--l;
     color: $sea;
     margin-top: 26px;
   }
