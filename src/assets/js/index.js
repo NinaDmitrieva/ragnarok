@@ -23,12 +23,12 @@ const scrollToSection = (e) => {
     window.scrollTo({ top, behavior: 'smooth' })
 }
 
-const formatValue = (value) => Math.floor(value < 10 ?`0${value}` : value);
+const formatValue = (value) => value < 10 ? `0${value}` : value;
 const getTimerValues = (diff) => ({
     seconds: (diff / 1000) % 60,
     minutes: (diff / (1000 * 60)) % 60,
     hours: (diff / (1000 * 60 * 60)) % 24,
-    days: (diff / (1000 * 3600 * 24)) % 30, //возьмем что в среднем 30
+    days: (diff / (1000 * 3600 * 24)) % 30, //возьмем, что в среднем 30
 });
 
 const starTimer = (date) => {
@@ -38,7 +38,7 @@ const starTimer = (date) => {
         Object.entries(getTimerValues(diff)).forEach(([key, value]) => {
            // console.log('key', value)
            const getTimerValue = document.getElementById(key);
-           getTimerValue.innerText = formatValue(value);
+            getTimerValue.innerText = formatValue(Math.floor(value));
         });
     }, 1000);
     //const diff = new Date(date).getTime() - new Date().getTime();
