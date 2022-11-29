@@ -6,11 +6,11 @@ let isPlay = false;
 const classes = {
     opened: 'opened',
     hidden: 'hidden',
-    activ: 'activ',
+    active: 'active',
 };
 
 const checkboxes = {
-    requiremnts: ["minimum", "recommended"],
+    requirements: ["minimum", "recommended"],
     version: ["standart", "limited"],
 }
 
@@ -64,12 +64,20 @@ const hendelOpenVideo =({target}) => {
 };
 
 const handelCheckbox= ({currentTarget:{checked, name}}) => {
-    const {activ} = classes;
+    const {active} = classes;
     const value = checkboxes[name][Number(checked)]; //раз в массиве 2 значения, преобразуем checked
     const list = document.getElementById(value);
+    const tabs = document.querySelectorAll(`[data-${name}]`);
+    const siblings = list.parentElement.children;
 
-    list.classList.add(activ);
+    for (const item of siblings) item.classList.remove(active);
+    for (const tab of tabs) {
+        tab.classList.remove(active);
+        tab.dataset[name] === value && tab.classList.add(active);
+    }
 
+    list.classList.add(active);
+    
     console.log(value);
 }
 

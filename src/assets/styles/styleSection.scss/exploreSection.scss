@@ -77,7 +77,7 @@
       line-height: $line-height--s;
       color: $dark;
 
-      &.activ {
+      &.active {
         color: $white;
       }
     }
@@ -147,14 +147,14 @@
     min-width: max-content;
     width: 50%;
 
-    .explore-list {
+    ul {
       font: {
         size: $font-size--s;
         weight: $font-weight--xs;
       }
       line-height: $line-height--s;
       flex-direction: column;
-      //display: none;
+      display: none;
 
       &.active {
         display: flex;
