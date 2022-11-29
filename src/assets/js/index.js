@@ -6,8 +6,15 @@ let isPlay = false;
 const classes = {
     opened: 'opened',
     hidden: 'hidden',
+    activ: 'activ',
 };
 
+const checkboxes = {
+    requiremnts: ["minimum", "recommended"],
+    version: ["standart", "limited"],
+}
+
+const checkbox = document.querySelectorAll('.checkbox');
 const header = document.querySelector('.header');
 const menuBtn = document.querySelector('.header-menu__btn');
 const menuLink = document.querySelectorAll('.menu-link');
@@ -56,7 +63,18 @@ const hendelOpenVideo =({target}) => {
     isPlay ? video.play() : video.pause();
 };
 
+const handelCheckbox= ({currentTarget:{checked, name}}) => {
+    const {activ} = classes;
+    const value = checkboxes[name][Number(checked)]; //раз в массиве 2 значения, преобразуем checked
+    const list = document.getElementById(value);
+
+    list.classList.add(activ);
+
+    console.log(value);
+}
+
 starTimer('Novemder 30, 2022 00:00:00');
 menuBtn.addEventListener('click', toggleMenu);
 videoBtn.addEventListener('click', hendelOpenVideo);
 menuLink.forEach((link) => link.addEventListener('click', scrollToSection));
+checkbox.forEach((box) => box.addEventListener('click', handelCheckbox));
