@@ -2,14 +2,17 @@ import '../styles/reset.scss';
 import '../styles/styles.scss';
 import '../styles/mixins.scss';
 
+let isPlay = false;
 const classes = {
-    opened: 'opened'
-}
+    opened: 'opened',
+    hidden: 'hidden',
+};
 
 const header = document.querySelector('.header');
 const menuBtn = document.querySelector('.header-menu__btn');
 const menuLink = document.querySelectorAll('.menu-link');
-
+const video = document.getElementById('video');
+const videoBtn = document.querySelector('.video-btn');
 
 const toggleMenu = () => { header.classList.toggle(classes.opened) };
 const scrollToSection = (e) => {
@@ -43,8 +46,17 @@ const starTimer = (date) => {
     }, 1000);
     //const diff = new Date(date).getTime() - new Date().getTime();
     //console.log(getTimerValues(diff))
-}
+};
 
-starTimer('Novemder 9, 2023 00:00:00');
+const hendelOpenVideo =({target}) => {
+    const info = target.parentElement;
+    isPlay = !isPlay;
+    info.classList.toggle(classes.hidden, isPlay)
+    target.innerText = isPlay ? 'Pause' : 'Play';
+    isPlay ? video.play() : video.pause();
+};
+
+starTimer('Novemder 30, 2022 00:00:00');
 menuBtn.addEventListener('click', toggleMenu);
+videoBtn.addEventListener('click', hendelOpenVideo);
 menuLink.forEach((link) => link.addEventListener('click', scrollToSection));
