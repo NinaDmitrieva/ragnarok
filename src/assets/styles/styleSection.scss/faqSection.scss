@@ -10,6 +10,14 @@
     transition: transform 0.4s;
     transform: translate(0);
 
+    &:nth-child(2) {
+      transition-delay: .25s;
+    }
+
+    &:last-child {
+      transition-delay: .5s; 
+    }
+
     &__header {
       font: {
         size: $font-size--s;

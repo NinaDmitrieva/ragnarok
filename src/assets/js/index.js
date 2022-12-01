@@ -24,6 +24,7 @@ const menuLink = document.querySelectorAll('.menu-link');
 const video = document.getElementById('video');
 const videoBtn = document.querySelector('.video-btn');
 const faqItem = document.querySelectorAll('.faq-item');
+const sections = document.querySelectorAll('.section');
 
 
 const toggleMenu = () => { header.classList.toggle(classes.opened) };
@@ -99,7 +100,7 @@ const initSlider = () => {
     })
 };
 
-const handelFaqItem = ({ currentTarget: target}) => {
+const handelFaqItem = ({ currentTarget: target }) => {
     target.classList.toggle(classes.opened);
     const isOpened = target.classList.contains(classes.opened);
     const height = target.querySelector('p').clientHeight;
@@ -108,8 +109,17 @@ const handelFaqItem = ({ currentTarget: target}) => {
     content.style.height = `${isOpened ? height : 0}px`
 };
 
+const hendelScroll = () => {
+    const { scrollY:y, innerHeight: h } = window;
+    sections.forEach((section) => {
+        if (y >section.offsetTop - h/1.5) 
+            section.classList.remove(classes.hidden);
+    });
+};
+
 initSlider();
-starTimer('Novemder 30, 2022 00:00:00');
+starTimer('December 31, 2022 00:00:00');
+window.addEventListener('scroll', hendelScroll);
 menuBtn.addEventListener('click', toggleMenu);
 videoBtn.addEventListener('click', hendelOpenVideo);
 menuLink.forEach((link) => link.addEventListener('click', scrollToSection));
