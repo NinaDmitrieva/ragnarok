@@ -1,4 +1,5 @@
 import 'swiper/swiper.min.css';
+import { languages } from './languages';
 import '../styles/reset.scss';
 import '../styles/styles.scss';
 
@@ -25,6 +26,7 @@ const video = document.getElementById('video');
 const videoBtn = document.querySelector('.video-btn');
 const faqItem = document.querySelectorAll('.faq-item');
 const sections = document.querySelectorAll('.section');
+const language = document.querySelectorAll('.language');
 
 
 const toggleMenu = () => { header.classList.toggle(classes.opened) };
@@ -117,6 +119,24 @@ const hendelScroll = () => {
     });
 };
 
+const setText = () => {
+    const lang = localStorage.getItem('lang') || 'en';
+    const content = languages[lang];
+
+    Object.entries(content).forEach(([key, value]) =>{
+        const items = document.querySelectorAll(`[data-text='${key}']`)
+        items.forEach((item) => (item.innerText = value));
+    })
+}
+const handelToggleLanguage =({target}) =>{
+    const {lang} = target.dataset;
+
+    if(!lang) return;
+    localStorage.setItem('lang', lang);
+    setText()
+}
+
+setText();
 initSlider();
 starTimer('December 31, 2022 00:00:00');
 window.addEventListener('scroll', hendelScroll);
@@ -125,3 +145,4 @@ videoBtn.addEventListener('click', hendelOpenVideo);
 menuLink.forEach((link) => link.addEventListener('click', scrollToSection));
 checkbox.forEach((box) => box.addEventListener('click', handelCheckbox));
 faqItem.forEach((item) => item.addEventListener('click', handelFaqItem));
+language.forEach((lang) => lang.addEventListener('click', handelToggleLanguage));
