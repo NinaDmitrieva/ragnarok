@@ -1,6 +1,9 @@
+import 'swiper/swiper.min.css';
 import '../styles/reset.scss';
 import '../styles/styles.scss';
-import '../styles/mixins.scss';
+
+import Swiper, {Navigation} from 'swiper';
+Swiper.use([Navigation]);
 
 let isPlay = false;
 const classes = {
@@ -46,8 +49,8 @@ const starTimer = (date) => {
         const diff = new Date(date).getTime() - new Date().getTime()
 
         Object.entries(getTimerValues(diff)).forEach(([key, value]) => {
-           // console.log('key', value)
-           const getTimerValue = document.getElementById(key);
+            // console.log('key', value)
+            const getTimerValue = document.getElementById(key);
             getTimerValue.innerText = formatValue(Math.floor(value));
         });
     }, 1000);
@@ -55,7 +58,7 @@ const starTimer = (date) => {
     //console.log(getTimerValues(diff))
 };
 
-const hendelOpenVideo =({target}) => {
+const hendelOpenVideo = ({ target }) => {
     const info = target.parentElement;
     isPlay = !isPlay;
     info.classList.toggle(classes.hidden, isPlay)
@@ -63,8 +66,8 @@ const hendelOpenVideo =({target}) => {
     isPlay ? video.play() : video.pause();
 };
 
-const handelCheckbox= ({currentTarget:{checked, name}}) => {
-    const {active} = classes;
+const handelCheckbox = ({ currentTarget: { checked, name } }) => {
+    const { active } = classes;
     const value = checkboxes[name][Number(checked)]; //раз в массиве 2 значения, преобразуем checked
     const list = document.getElementById(value);
     const tabs = document.querySelectorAll(`[data-${name}]`);
@@ -77,10 +80,24 @@ const handelCheckbox= ({currentTarget:{checked, name}}) => {
     }
 
     list.classList.add(active);
-    
-    console.log(value);
-}
 
+    console.log(value);
+};
+
+const initSlider = () => {
+  new Swiper('.swiper',{
+    loop: true,
+    slidesPerView: 2,
+    spaceBetween: 20,
+    initialSlide: 2,
+    navigation:{
+        nextEl: '.swiper-btn-prev',
+        prevEl: '.swiper-btn-next',
+    }
+  })
+};
+
+initSlider();
 starTimer('Novemder 30, 2022 00:00:00');
 menuBtn.addEventListener('click', toggleMenu);
 videoBtn.addEventListener('click', hendelOpenVideo);
