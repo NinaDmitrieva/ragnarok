@@ -2,7 +2,7 @@ import 'swiper/swiper.min.css';
 import '../styles/reset.scss';
 import '../styles/styles.scss';
 
-import Swiper, {Navigation} from 'swiper';
+import Swiper, { Navigation } from 'swiper';
 Swiper.use([Navigation]);
 
 let isPlay = false;
@@ -23,6 +23,8 @@ const menuBtn = document.querySelector('.header-menu__btn');
 const menuLink = document.querySelectorAll('.menu-link');
 const video = document.getElementById('video');
 const videoBtn = document.querySelector('.video-btn');
+const faqItem = document.querySelectorAll('.faq-item');
+
 
 const toggleMenu = () => { header.classList.toggle(classes.opened) };
 const scrollToSection = (e) => {
@@ -85,16 +87,25 @@ const handelCheckbox = ({ currentTarget: { checked, name } }) => {
 };
 
 const initSlider = () => {
-  new Swiper('.swiper',{
-    loop: true,
-    slidesPerView: 2,
-    spaceBetween: 20,
-    initialSlide: 2,
-    navigation:{
-        nextEl: '.swiper-btn-prev',
-        prevEl: '.swiper-btn-next',
-    }
-  })
+    new Swiper('.swiper', {
+        loop: true,
+        slidesPerView: 2,
+        spaceBetween: 20,
+        initialSlide: 2,
+        navigation: {
+            prevEl: '.swiper-btn-prev',
+            nextEl: '.swiper-btn-next',
+        }
+    })
+};
+
+const handelFaqItem = ({ currentTarget: target}) => {
+    target.classList.toggle(classes.opened);
+    const isOpened = target.classList.contains(classes.opened);
+    const height = target.querySelector('p').clientHeight;
+    const content = target.querySelector('.faq-item__content');
+
+    content.style.height = `${isOpened ? height : 0}px`
 };
 
 initSlider();
@@ -103,3 +114,4 @@ menuBtn.addEventListener('click', toggleMenu);
 videoBtn.addEventListener('click', hendelOpenVideo);
 menuLink.forEach((link) => link.addEventListener('click', scrollToSection));
 checkbox.forEach((box) => box.addEventListener('click', handelCheckbox));
+faqItem.forEach((item) => item.addEventListener('click', handelFaqItem));
