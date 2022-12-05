@@ -1,0 +1,103 @@
+@import "../typography.scss";
+
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+
+  &.opened {
+    transition: all 0.25s;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &-wrapper {
+    background: linear-gradient(180deg, #30373f 0%, #000000 99.82%);
+    border-radius: 12px;
+    padding: 32px;
+    position: relative;
+
+    &::before {
+      width: 90%;
+      height: 90%;
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: -1;
+      background: url(../img/modal.png) no-repeat center/cover;
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font: {
+      weight: $font-weight--s;
+    }
+    line-height: $line-height--l;
+    color: #d9d9d9;
+    cursor: pointer;
+  }
+
+  &-title {
+    font: {
+      weight: $font-weight--l;
+      size: $font-size--m;
+    }
+    line-height: $line-height--xl;
+    text-align: center;
+    color: $violet;
+  }
+
+  &-version {
+    font: {
+      weight: $font-weight--s;
+      size: $font-size--s;
+    }
+    line-height: $line-height--xl;
+    text-align: center;
+    color: $white;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+
+&-description {
+  font: {
+    weight: $font-weight--xs;
+    size: $font-size--xxs;
+  }
+  line-height: $line-height--s;
+  color: #d9d9d9;
+}
+
+&-total {
+  font: {
+    weight: $font-weight--s;
+    size: $font-size--xs-2;
+  }
+  line-height: $line-height--s;
+  justify-content: space-between;
+  width: 100%;
+  color: $white;
+}
+
+&-price {
+    font-size: $font-size--m-2;
+}
+
+&-submit {
+    @include btn;
+    @include hoverViolet;
+    width: 100%;
+    justify-content: center;
+}
+}

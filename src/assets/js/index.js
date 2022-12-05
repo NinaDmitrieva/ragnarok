@@ -54,13 +54,10 @@ const starTimer = (date) => {
         const diff = new Date(date).getTime() - new Date().getTime()
 
         Object.entries(getTimerValues(diff)).forEach(([key, value]) => {
-            // console.log('key', value)
             const getTimerValue = document.getElementById(key);
             getTimerValue.innerText = formatValue(Math.floor(value));
         });
     }, 1000);
-    //const diff = new Date(date).getTime() - new Date().getTime();
-    //console.log(getTimerValues(diff))
 };
 
 const hendelOpenVideo = ({ target }) => {
@@ -112,9 +109,9 @@ const handelFaqItem = ({ currentTarget: target }) => {
 };
 
 const hendelScroll = () => {
-    const { scrollY:y, innerHeight: h } = window;
+    const { scrollY: y, innerHeight: h } = window;
     sections.forEach((section) => {
-        if (y >section.offsetTop - h/1.5) 
+        if (y > section.offsetTop - h / 1.5)
             section.classList.remove(classes.hidden);
     });
 };
@@ -123,15 +120,18 @@ const setText = () => {
     const lang = localStorage.getItem('lang') || 'en';
     const content = languages[lang];
 
-    Object.entries(content).forEach(([key, value]) =>{
+
+    Object.entries(content).forEach(([key, value]) => {
         const items = document.querySelectorAll(`[data-text='${key}']`)
         items.forEach((item) => (item.innerText = value));
-    })
-}
-const handelToggleLanguage =({target}) =>{
-    const {lang} = target.dataset;
+    });
 
-    if(!lang) return;
+};
+
+const handelToggleLanguage = ({ target }) => {
+    const { lang } = target.dataset;
+
+    if (!lang) return;
     localStorage.setItem('lang', lang);
     setText()
 }
