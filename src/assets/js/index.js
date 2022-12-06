@@ -13,6 +13,21 @@ const classes = {
     active: 'active',
 };
 
+const values = [
+    {
+        price: 19.99,
+        title:'Standart Edition',
+    },
+    {
+        price: 18.99,
+        title: 'Standart Edition',
+    },
+    {
+        price: 29.99,
+        title: 'Deluxe Edition',
+    },
+];
+
 const checkboxes = {
     requirements: ["minimum", "recommended"],
     version: ["standart", "limited"],
@@ -27,7 +42,12 @@ const videoBtn = document.querySelector('.video-btn');
 const faqItem = document.querySelectorAll('.faq-item');
 const sections = document.querySelectorAll('.section');
 const language = document.querySelectorAll('.language');
-
+const buyBtn = document.querySelectorAll('.btn-buy');
+const modal = document.querySelector('.modal');
+const modalTitle = document.querySelector('.modal-subtitle');
+const modalPrice = document.querySelector('.modal-total__price');
+const modalClose = document.querySelector('.modal-close');
+const overlay = document.querySelector('.overlay');
 
 const toggleMenu = () => { header.classList.toggle(classes.opened) };
 const scrollToSection = (e) => {
@@ -133,9 +153,25 @@ const handelToggleLanguage = ({ target }) => {
 
     if (!lang) return;
     localStorage.setItem('lang', lang);
-    setText()
-}
+    setText();
+};
 
+const handleBuyBtn = ({ currentTarget: target}) => {
+    const {value} = target.dataset;
+
+    if(!value) return;
+
+    const {price, title} = values[value];
+    modalTitle.innerText = title;
+    modalPrice.innerText = `${price}$`;
+    modal.classList.add(classes.opened);
+    overlay.classList.add(classes.opened);
+};
+
+const closeModal =() => {
+    modal.classList.remove(classes.opened);
+    overlay.classList.remove(classes.opened);
+};
 setText();
 initSlider();
 starTimer('December 31, 2022 00:00:00');
@@ -146,3 +182,5 @@ menuLink.forEach((link) => link.addEventListener('click', scrollToSection));
 checkbox.forEach((box) => box.addEventListener('click', handelCheckbox));
 faqItem.forEach((item) => item.addEventListener('click', handelFaqItem));
 language.forEach((lang) => lang.addEventListener('click', handelToggleLanguage));
+buyBtn.forEach((btn) => btn.addEventListener('click', handleBuyBtn));
+modalClose.addEventListener('click', closeModal);

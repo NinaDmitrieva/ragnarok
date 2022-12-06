@@ -1,6 +1,5 @@
 @import "../typography.scss";
 
-
 .modal {
   position: fixed;
   top: 50%;
@@ -69,35 +68,139 @@
     margin-top: 5px;
   }
 
-
-&-description {
-  font: {
-    weight: $font-weight--xs;
-    size: $font-size--xxs;
+  &-description {
+    font: {
+      weight: $font-weight--xs;
+      size: $font-size--xxs;
+    }
+    line-height: $line-height--s;
+    color: #d9d9d9;
   }
-  line-height: $line-height--s;
-  color: #d9d9d9;
-}
 
-&-total {
-  font: {
-    weight: $font-weight--s;
-    size: $font-size--xs-2;
+  &-total {
+    font: {
+      weight: $font-weight--s;
+      size: $font-size--xs-2;
+    }
+    line-height: $line-height--s;
+    justify-content: space-between;
+    width: 100%;
+    color: $white;
   }
-  line-height: $line-height--s;
-  justify-content: space-between;
-  width: 100%;
-  color: $white;
-}
 
-&-price {
+  &-price {
     font-size: $font-size--m-2;
-}
+  }
 
-&-submit {
+  &-submit {
     @include btn;
     @include hoverViolet;
     width: 100%;
     justify-content: center;
+  }
 }
+
+.form {
+  margin-top: 17px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 16px;
+  justify-content: space-between;
+  width: 470px;
+
+  &-group {
+    width: calc(50% - 13px);
+
+    &.full {
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      font: {
+        weight: $font-weight--xs;
+        size: $font-size--xxs;
+      }
+      line-height: $line-height--xxs;
+      text-transform: uppercase;
+      color: $white;
+      margin-bottom: 7px;
+    }
+    input {
+      font: {
+        weight: $font-weight--xs;
+        size: $font-size--xxs;
+      }
+      line-height: $line-height--xxs;
+      background: $dark;
+      border-radius: 6px;
+      text-transform: uppercase;
+      padding: 16px 14px;
+      color: #d9d9d9;
+      width: 100%;
+    }
+  }
+
+  &-checkbox {
+    position: relative;
+    column-gap: 12px;
+
+    .check {
+      background: $dark;
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      border-radius: 6px;
+    }
+
+    label {
+      font: {
+        weight: $font-weight--xs;
+        size: $font-size--xxs;
+      }
+      line-height: $line-height--xxs;
+      text-transform: uppercase;
+      color: $white;
+
+      .red {
+        color: #ff4136;
+      }
+    }
+    input {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+
+      &:checked {
+        & + .check {
+          &::before {
+            content: "✓";
+          }
+        }
+      }
+    }
+  }
 }
+.overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  background: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100%;
+
+  &.opened {
+    visibility: visible;
+    opacity: 1;
+    z-index: 98;
+  }
+  }
+
